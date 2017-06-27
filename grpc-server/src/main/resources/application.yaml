@@ -1,0 +1,10 @@
+server:
+  port: 6565
+grpc:
+    port: ${server.port}
+eureka:
+    instance:
+        nonSecurePort: ${grpc.port}
+    client:
+        serviceUrl:
+            defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
